@@ -1,10 +1,9 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import Header from '../components/Header'
 import Nav from '../components/Nav'
 import Results from '../components/Results'
-import requests from '../utils/requests'
+import requests from '../utils/swapRequests'
 
 const Home: NextPage = ({ results }) => {
   return (
@@ -27,11 +26,12 @@ export default Home
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const genre = context.query.genre;
+  console.log('genre', genre)
 
   const request = await fetch(
-    `https://api.themoviedb.org/3${
+    `https://swapi.dev/api/${
       // @ts-ignore
-      requests[genre]?.url || requests.fetchTrending.url
+      requests[genre]?.url || requests.fetchFilms.url
     }`
   ).then(res => res.json())
   return {

@@ -1,10 +1,12 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { forwardRef } from 'react'
 
-const Thumbnail = ({ result }) => {
+const Thumbnail = forwardRef(({ result }, ref) => {
   const BASE_URL = '/images/'
   return (
-    <div className='p-2 group cursor-pointer transition duration-200 
+    <div 
+      ref={ref}
+      className='p-2 group cursor-pointer transition duration-200 
       ease-in transform sm:hover:scale-105 hover:z-50'>
       <Image
         layout='responsive'
@@ -25,6 +27,6 @@ const Thumbnail = ({ result }) => {
       </div>
     </div>
   )
-}
+})
 
 export default Thumbnail

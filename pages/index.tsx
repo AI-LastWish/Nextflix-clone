@@ -1,10 +1,12 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
-import Header from '../components/Header'
 import Nav from '../components/Nav'
-import Results from '../components/Results'
 import requests from '../utils/swapRequests'
+import React from 'react'
+import Results from '../components/Results'
+import Header from '../components/Header'
 
+// @ts-ignore
 const Home: NextPage = ({ results }) => {
   return (
     <div>

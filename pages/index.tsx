@@ -26,7 +26,6 @@ export default Home
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const genre = context.query.genre;
-  console.log('genre', genre)
 
   const request = await fetch(
     `https://swapi.dev/api/${
